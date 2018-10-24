@@ -11,15 +11,21 @@ I want to run and adjust the tests below
     Then header "Welcome to BBC.com" should display on the top of the page
 
   @bbc_02
-  Scenario: example02 - BBC opening the registration form
-    Given the user is not logged in
-    When the user clicks on the log in button
+  Scenario: example02 - BBC see registration option
+    Given the unregistered-user
+    When the user navigates to "home"
+    Then the registration button is visible
+
+  @bbc_02a
+  Scenario: example02a - BBC able to register
+    Given the unregistered-user navigates to "home"
+    When the user navigates to the registration page
     Then the registration form should be displayed
 
   @bbc_03
-  Scenario: example03 - BBC succesful log in
+  Scenario: example03 - BBC see log out option
     Given the user is logged in
-    When the user clicks on the account button
+    When the user navigates to his account profile
     Then the log out button should be displayed
 
 
